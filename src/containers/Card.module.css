@@ -1,0 +1,27 @@
+.card {
+  width: 300px;
+  background-color: rgb(32, 32, 32);
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 black;
+  transition: transform 0.5s ease;
+}
+.card:hover {
+  transform: scale(1.02);
+  transition: transform 0.5s ease;
+}
+.cardDetails {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.card img {
+  width: 100%;
+  height: 400px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.description {
+  font-style: italic;
+}

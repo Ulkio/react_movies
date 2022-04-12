@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+/*
+
+*/
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  background-color: #333;
+  color: #fff;
+}
+
+h1 {
+  text-align: center;
+}
+
+header {
+  margin-bottom: 50px;
+}

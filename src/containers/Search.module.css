@@ -1,0 +1,19 @@
+.moviesSearch form {
+  margin-top: 2em;
+  text-align: center;
+}
+.moviesSearch label {
+  margin-right: 1em;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.moviesSearch input[name="name"] {
+  margin-right: 1em;
+  border-radius: 5px;
+  width: 150px;
+  border: none;
+}
+.moviesSearch input[name="button"] {
+  font-weight: bold;
+}
