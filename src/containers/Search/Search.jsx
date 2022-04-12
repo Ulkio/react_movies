@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Search.module.css";
-import SearchList from "./SearchList";
+import SearchList from "../SearchList/SearchList";
 
 function Search() {
   const [name, setName] = useState("");

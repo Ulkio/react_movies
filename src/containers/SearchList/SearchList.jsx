@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { getMoviesSearch, getMovieByName } from "../api/axios";
+import { getMoviesSearch, getMovieByName } from "../../api/axios";
 import styles from "./SearchList.module.css";
-import Card from "./Card";
+import Card from "../Card/Card";
 
 function SearchList(props) {
   const [movies, setMovies] = useState([]);
@@ -26,24 +26,39 @@ function SearchList(props) {
     });
   };
 
-  const onClickNextPage = () => {
-    if (page < maxPage) {
-      setPage(page + 1);
+  // const onClickNextPage = () => {
+  //   if (page < maxPage) {
+  //     setPage(page + 1);
+  //   }
+  // };
+
+  // const onClickPreviousPage = () => {
+  //   if (page > 1) {
+  //     setPage(page - 1);
+  //   }
+  // };
+  const onClickArrow = (arrow) => {
+    switch (arrow) {
+      case "previous":
+        if (page > 1) {
+          setPage(page - 1);
+        }
+        break;
+      case "next":
+        if (page < maxPage) {
+          setPage(page + 1);
+        }
+        break;
+      default:
+        break;
     }
   };
-
-  const onClickPreviousPage = () => {
-    if (page > 1) {
-      setPage(page - 1);
-    }
-  };
-
   return (
     <>
       <div className="pages-container">
         <div className={styles.pages}>
-          <a onClick={() => onClickPreviousPage()}>◄</a>
-          <a onClick={() => onClickNextPage()}>►</a>
+          <a onClick={() => onClickArrow("previous")}>◄</a>
+          <a onClick={() => onClickArrow("next")}>►</a>
         </div>
       </div>
       <div className={styles.moviesSelector}>

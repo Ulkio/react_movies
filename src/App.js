@@ -1,10 +1,9 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { getTrendingMovies } from "./api/axios";
 import React, { useState, useEffect } from "react";
-import Header from "./containers/Header";
-import CardsList from "./containers/CardsList";
-import Search from "./containers/Search";
+import Header from "./containers/Header/Header";
+import CardsList from "./containers/CardsList/CardsList";
+import Search from "./containers/Search/Search";
 
 function App() {
   return (

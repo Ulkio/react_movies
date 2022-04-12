@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
 function Header() {
-  const [first, setfirst] = useState("");
-
   return (
     <>
       <header>
@@ -13,7 +11,6 @@ function Header() {
       </header>
       <aside>
         <div className={styles.toolbar}>
-          {/* Remplacer par link */}
           <Link to="/trending">Films de la semaine</Link>
           <Link to="/search">Rechercher un film</Link>
         </div>

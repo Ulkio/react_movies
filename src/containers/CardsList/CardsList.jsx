@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getTrendingMovies } from "../api/axios";
-import Card from "./Card";
+import { getTrendingMovies } from "../../api/axios";
+import Card from "../Card/Card";
 import styles from "./CardsList.module.css";
 
 function CardsList() {
