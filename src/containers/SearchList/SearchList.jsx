@@ -8,35 +8,41 @@ function SearchList(props) {
   const [movieClicked, setMovieClicked] = useState(null);
   const [page, setPage] = useState(1);
   const [maxPage, setMaxPage] = useState(1);
+  const [error, setError] = useState("");
 
+  // lorsqu'on recherche ou qu'on change de page, affichage de la liste
   useEffect(() => {
     axiosgetMoviesSearch();
   }, [props.name, page]);
 
+  // quand on relance une recherche il faut retourner à la page 1
+  useEffect(() => {
+    setPage(1);
+  }, [maxPage]);
+
   const axiosgetMoviesSearch = () => {
-    getMoviesSearch(props.name, page).then((res) => {
-      setMovies(res.data.results);
-      setMaxPage(res.data.total_pages);
-    });
+    getMoviesSearch(props.name, page)
+      .then((res) => {
+        setMovies(res.data.results);
+        setMaxPage(res.data.total_pages);
+        setError("");
+      })
+      .catch((err) => {
+        setError(err);
+      });
   };
 
   const axiosGetMovieByName = (title) => {
-    getMovieByName(title).then((res) => {
-      setMovieClicked(res.data.results[0]);
-    });
+    getMovieByName(title)
+      .then((res) => {
+        setMovieClicked(res.data.results[0]);
+        setError("");
+      })
+      .catch((err) => {
+        setError(err);
+      });
   };
 
-  // const onClickNextPage = () => {
-  //   if (page < maxPage) {
-  //     setPage(page + 1);
-  //   }
-  // };
-
-  // const onClickPreviousPage = () => {
-  //   if (page > 1) {
-  //     setPage(page - 1);
-  //   }
-  // };
   const onClickArrow = (arrow) => {
     switch (arrow) {
       case "previous":
@@ -53,6 +59,7 @@ function SearchList(props) {
         break;
     }
   };
+
   return (
     <>
       <div className="pages-container">
@@ -64,7 +71,7 @@ function SearchList(props) {
       <div className={styles.moviesSelector}>
         <div className={styles.moviesSearched}>
           <ul>
-            {movies &&
+            {!error ? (
               movies.map((movie) => {
                 return (
                   <React.Fragment key={movie.id}>
@@ -73,7 +80,10 @@ function SearchList(props) {
                     </li>
                   </React.Fragment>
                 );
-              })}
+              })
+            ) : (
+              <p>Erreur au chargement des données</p>
+            )}
           </ul>
         </div>
         <div className={styles.movieDetails}>

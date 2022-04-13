@@ -3,7 +3,7 @@ import styles from "./Search.module.css";
 import SearchList from "../SearchList/SearchList";
 
 function Search() {
-  const [name, setName] = useState("");
+  const [movieName, setMovieName] = useState("");
   const [input, setInput] = useState("");
   const [isRender, setIsRender] = useState(false);
 
@@ -14,7 +14,7 @@ function Search() {
   };
 
   const onClickSearch = () => {
-    setName(input);
+    setMovieName(input);
     setIsRender(true);
   };
 
@@ -33,7 +33,7 @@ function Search() {
         </form>
       </div>
 
-      {isRender && <SearchList name={name} />}
+      {isRender && <SearchList name={movieName} page={1} />}
     </>
   );
 }

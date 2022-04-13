@@ -8,7 +8,7 @@ function Card(props) {
         {props.movie.poster_path ? (
           <img src={IMAGE_PATH + props.movie.poster_path} />
         ) : (
-          "Y A PAS D'IMAGE PADBOL"
+          <h2>Y A PAS D'IMAGE PADBOL</h2>
         )}
 
         <div className={styles.cardDetails}>
