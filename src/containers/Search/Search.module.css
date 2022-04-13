@@ -9,6 +9,8 @@
 }
 
 .moviesSearch input[name="name"] {
+  font-weight: bold;
+  height: 2em;
   margin-right: 1em;
   border-radius: 5px;
   width: 150px;
