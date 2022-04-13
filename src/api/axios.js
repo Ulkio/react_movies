@@ -23,18 +23,22 @@ export async function getTrendingMovies() {
   return result;
 }
 
-export function getMoviesSearch(query, page) {
-  return axios
-    .get(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=fr-FR&query=${query}&page=${page}&include_adult=false`
-    )
-    .then((res) => {
-      return res;
-    })
-    .catch((err) => {
-      return err;
-    });
-}
+export const getMoviesSearch = async (query, page) => {
+  let result = await axios.get(
+    `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=fr-FR&query=${query}&page=${page}&include_adult=false`
+  );
+  return result;
+  // return axios
+  //   .get(
+  //     `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=fr-FR&query=${query}&page=${page}&include_adult=false`
+  //   )
+  //   .then((res) => {
+  //     return res;
+  //   })
+  //   .catch((err) => {
+  //     return err;
+  //   });
+};
 
 export function getMovieByName(name) {
   return axios
